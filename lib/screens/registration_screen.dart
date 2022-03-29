@@ -109,7 +109,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
       controller: noHPEditingController,
       keyboardType: TextInputType.number,
       validator:(value){
-        RegExp regex =new RegExp(r'/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/');
+        String pattern = r'(^[0-9]*$)';
+        RegExp regex = new RegExp(pattern);
         if(value!.isEmpty)
         {
           return ("Hanphone Number is Required for Sign Up");
@@ -185,10 +186,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          //Navigator.push(
-          //  context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          Navigator.push(
+           context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
-          // signIn(emailController.text, passwordController.text);
+          signUp(emailEditingController.text, passwordEditingController.text);
         },
 
         child: Text(
@@ -309,7 +310,7 @@ void signUp(String email, String password) async {
     await _auth.createUserWithEmailAndPassword(email: email, password: password)
     .then((value) => {
       postDetailsToFirestore()
-       
+        
     }).catchError((e)
     {
       Fluttertoast.showToast(msg: e!.message);
@@ -340,7 +341,7 @@ postDetailsToFirestore() async {
 
     Navigator.pushAndRemoveUntil(
       (context),
-      MaterialPageRoute(builder: (context) => HomeScreen()), 
+      MaterialPageRoute(builder: (context) => HomeScreen()),
       (route) => false);
 
   }
