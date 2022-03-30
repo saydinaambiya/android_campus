@@ -245,22 +245,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                   fontWeight: FontWeight.w700),
                             ),
 
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     Navigator.push(
-                            //         context,
-                            //         MaterialPageRoute(
-                            //             builder: (builder) =>
-                            //                 RegistrationScreen()));
-                            //   },
-                            //   child: Text(
-                            //     "Sign Up",
-                            //     style: TextStyle(
-                            //         color: Colors.redAccent,
-                            //         fontWeight: FontWeight.w600,
-                            //         fontSize: 15),
-                            //   ),
-                            // )
                           ],
                         ),
                         SizedBox(height: 16),
